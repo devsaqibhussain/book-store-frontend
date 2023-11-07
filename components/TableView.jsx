@@ -38,7 +38,7 @@ const TableView = ({ books }) => {
             <TableCell className="hidden sm:table-cell text-center">
               {book.publishYear}
             </TableCell>
-            <TableCell className="flex gap-0 items-center justify-center">
+            <TableCell className="flex gap-1 items-center justify-center">
               <ShowBookBtn book={book} />
               <EditBookBtn id={book._id} />
               <DeleteBox id={book._id} />
