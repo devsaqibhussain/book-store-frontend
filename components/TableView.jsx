@@ -33,9 +33,9 @@ const TableView = ({ books }) => {
             <TableCell className="font-medium text-center">
               {index + 1}
             </TableCell>
-            <TableCell className=" text-center line-clamp-1">{book.title}</TableCell>
-            <TableCell className=" text-center line-clamp-1">{book.author}</TableCell>
-            <TableCell className="hidden sm:table-cell text-center line-clamp-1">
+            <TableCell className=" text-center max-w-[70px] whitespace-nowrap overflow-hidden">{book.title}</TableCell>
+            <TableCell className=" text-center max-w-[60px] whitespace-nowrap overflow-hidden">{book.author}</TableCell>
+            <TableCell className="hidden sm:table-cell text-center ">
               {book.publishYear}
             </TableCell>
             <TableCell className="flex gap-1 items-center justify-center">
