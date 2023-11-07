@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const NavBar = () => {
   return (
-    <div className=" m-auto mb-6">
+    <div className=" m-auto mb-6 mt-1 sm:mt-0">
       <div className=" flex justify-between container items-center py-1 px-2 bg-zinc-850 rounded-full drop-shadow-md border-b-2 border-zinc-200 dark:border-zinc-800 p-2">
         <Link href={"/"}>
           <Button variant="transparent" size="icon">

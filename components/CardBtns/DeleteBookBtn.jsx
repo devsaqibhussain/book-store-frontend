@@ -5,7 +5,7 @@ import AddToolTip from "@/components/addToolTip";
 const DeleteBookBtn = () => {
   return (
     <AddToolTip text={"Delete Book"}>
-      <Button variant="transparent" size="icon" className="dark:bg-zinc-950">
+      <Button variant="transparent" size="icon" className="dark:bg-transparent">
         <MdDelete className=" h-3/5 w-full hover:text-red-600" />
       </Button>
     </AddToolTip>

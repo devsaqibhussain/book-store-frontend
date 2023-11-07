@@ -25,11 +25,11 @@ const Page = () => {
         console.log(err);
       });
   }, []);
-  const [view, setView] = useState("card");
+  const [view, setView] = useState("table");
   return (
     <div>
       <div className=" flex justify-between mb-4">
-        <ViewSwitch setView={(e) => setView(e)} />
+        <ViewSwitch setView={(e) => setView(e)} view={view} />
 
         <AddBookBtn />
       </div>
@@ -39,7 +39,7 @@ const Page = () => {
       ) : (
         <div className="mt-4">
           {view === "card" ? (
-            <CardView books={books}  />
+            <CardView books={books} />
           ) : (
             <TableView books={books} />
           )}

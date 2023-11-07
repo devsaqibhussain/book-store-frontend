@@ -68,7 +68,7 @@ const BookFields = ({
         <Separator className="mt-4 mb-2" />
       </CardContent>
       <CardFooter>
-        <Button onClick={handleSubmit}>Create Book</Button>
+        <Button onClick={handleSubmit} className="rounded-xl">{title}</Button>
       </CardFooter>
     </Card>
   );

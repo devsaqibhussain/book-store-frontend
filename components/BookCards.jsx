@@ -36,7 +36,7 @@ const BookCards = ({ book }) => {
             <span className=" text-xs font-extralight">Book Tools:</span>
             <div className=" flex flex-row gap-2">
               <ShowBookBtn book={book} />
-              <EditBookBtn book={book} />
+              <EditBookBtn id={book._id} />
               <DeleteBox id={book._id} />
             </div>
           </div>

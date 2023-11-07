@@ -1,9 +1,53 @@
-import React from 'react'
+import React from "react";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import ShowBookBtn from "./CardBtns/ShowBookBtn";
+import EditBookBtn from "./CardBtns/EditBookBtn";
+import DeleteBox from "./DeleteBox";
 
-const TableView = () => {
+const TableView = ({ books }) => {
   return (
-    <div>TableView</div>
-  )
-}
+    <Table>
+      <TableCaption>A list of books in database.</TableCaption>
+      <TableHeader>
+        <TableRow>
+          <TableHead className=" whitespace-nowrap text-center">No.</TableHead>
+          <TableHead className=" text-center">Title</TableHead>
+          <TableHead className=" text-center">Author</TableHead>
+          <TableHead className=" hidden sm:table-cell text-center whitespace-nowrap">
+            Published Year
+          </TableHead>
+          <TableHead className="text-center">Controls</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {books.map((book, index) => (
+          <TableRow key={book._id}>
+            <TableCell className="font-medium text-center">
+              {index + 1}
+            </TableCell>
+            <TableCell className=" text-center">{book.title}</TableCell>
+            <TableCell className=" text-center">{book.author}</TableCell>
+            <TableCell className="hidden sm:table-cell text-center">
+              {book.publishYear}
+            </TableCell>
+            <TableCell className="flex gap-0 items-center justify-center">
+              <ShowBookBtn book={book} />
+              <EditBookBtn id={book._id} />
+              <DeleteBox id={book._id} />
+            </TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  );
+};
 
-export default TableView
+export default TableView;
