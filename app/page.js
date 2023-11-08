@@ -12,6 +12,7 @@ import { Separator } from "@/components/ui/separator";
 const Page = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [books, setBooks] = useState([]);
+
   useEffect(() => {
     setIsLoading(true);
     axios

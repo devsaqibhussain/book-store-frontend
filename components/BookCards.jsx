@@ -11,7 +11,7 @@ import EditBookBtn from "@/components/CardBtns/EditBookBtn";
 import ShowBookBtn from "@/components/CardBtns/ShowBookBtn";
 import DeleteBox from "@/components/DeleteBox";
 
-const BookCards = ({ book }) => {
+const BookCards = ({ book}) => {
   return (
     <div>
       <Card className="h-[40vh]">
@@ -37,7 +37,7 @@ const BookCards = ({ book }) => {
             <div className=" flex flex-row gap-2">
               <ShowBookBtn book={book} />
               <EditBookBtn id={book._id} />
-              <DeleteBox id={book._id} />
+              <DeleteBox id={book._id}/>
             </div>
           </div>
         </CardFooter>

@@ -41,7 +41,7 @@ const TableView = ({ books }) => {
             <TableCell className="flex gap-1 items-center justify-center">
               <ShowBookBtn book={book} />
               <EditBookBtn id={book._id} />
-              <DeleteBox id={book._id} />
+              <DeleteBox id={book._id}/>
             </TableCell>
           </TableRow>
         ))}

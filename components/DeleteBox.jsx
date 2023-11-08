@@ -12,17 +12,38 @@ import {
 import DeleteBookBtn from "@/components/CardBtns/DeleteBookBtn";
 import { Button } from "./ui/button";
 import axios from "axios";
+import { useToast } from "@/components/ui/use-toast";
+import { ToastAction } from "@radix-ui/react-toast";
 
 const DeleteBox = ({ id }) => {
+  const { toast } = useToast();
+  const handleReload = () => {
+    location.reload();
+  };
   const handleDelete = async () => {
     try {
       await axios.delete(
         `https://book-store-backend-production-d3c0.up.railway.app/api/book/${id}`
       );
-      alert("Book Deleted");
+      toast({
+        title: "Delete Book Successfull",
+        description:
+          "Reload to see results if browser doesnt reload automatically",
+        action: (
+          <ToastAction onClick={() => handleReload} altText="Reload">
+            Reload
+          </ToastAction>
+        ),
+      });
+      setTimeout(() => {
+        handleReload();
+      }, 3000);
     } catch (err) {
-      console.log(err);
-      alert(err);
+      toast({
+        variant: "destructive",
+        title: "Error Occured",
+        description: err.message,
+      });
     }
   };
   return (

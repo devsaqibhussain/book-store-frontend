@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import BookFields from "@/components/BookFields.jsx";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
 
 const Page = ({ params }) => {
   const { id } = params;
@@ -12,20 +13,36 @@ const Page = ({ params }) => {
   const [url, setUrl] = useState(null);
   const [publishYear, setPublishYear] = useState(2023);
   const router = useRouter();
+  const { toast } = useToast();
 
   const handleSubmit = async () => {
-    const data = { title: title, author: author, publishYear: publishYear, img:img, url:url };
+    const data = {
+      title: title,
+      author: author,
+      publishYear: publishYear,
+      img: img,
+      url: url,
+    };
     axios
       .put(
         `https://book-store-backend-production-d3c0.up.railway.app/api/book/${id}`,
         data
       )
       .then(() => {
-        alert("Book Updated");
-        router.push("/");
+        toast({
+          title: "Upaded Book Successfull",
+          description: "Returning to Homepage",
+        });
+        setTimeout(() => {
+          router.push("/");
+        }, 2000);
       })
       .catch((err) => {
-        alert(err.message);
+        toast({
+          variant: "destructive",
+          title: "Error Occured",
+          description: err.message,
+        });
       });
   };
   useEffect(() => {

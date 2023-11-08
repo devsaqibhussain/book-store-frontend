@@ -14,9 +14,11 @@ import Spinner from "@/components/Spinner";
 
 import { isValidUrl } from "@/lib/utils";
 
+
 const Page = ({ params }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     setIsLoading(true);
     axios

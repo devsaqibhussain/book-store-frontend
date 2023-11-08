@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import NavBar from "@/components/navbar";
 const inter = Inter({ subsets: ["latin"] });
+import { Toaster } from "@/components/ui/toaster"
 
 export const metadata = {
   title: "Library App",
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
         >
           <NavBar />
           <div className=" container">{children}</div>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
