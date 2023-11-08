@@ -11,7 +11,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Spinner from "@/components/Spinner";
-import Image from "next/image";
+
+import { isValidUrl } from "@/lib/utils";
 
 const Page = ({ params }) => {
   const [data, setData] = useState({});
@@ -39,8 +40,8 @@ const Page = ({ params }) => {
       ) : (
         <Card className="grid grid-cols-1 sm:grid-cols-2 max-w-3xl m-auto">
           <div className=" flex justify-center items-center p-5">
-            <Image
-              src={`${data.img||"/noimage.jpg"}`}
+            <img
+              src={isValidUrl(data.img) ? `${data.img}` : "/noimage.jpg"}
               alt="Book Image"
               width={250}
               height={400}
@@ -66,7 +67,11 @@ const Page = ({ params }) => {
               <p className=" font-semibold text-zinc-400">
                 URL:{" "}
                 <span className=" text-zinc-800 dark:text-zinc-100 font-semibold">
-                  {data.url? <a href={data.url}> Book&apos;s Link </a>: "N/A"}
+                  {isValidUrl(data.url) ? (
+                    <a href={data.url}> Book&apos;s Link </a>
+                  ) : (
+                    "N/A"
+                  )}
                 </span>
               </p>
             </CardContent>
