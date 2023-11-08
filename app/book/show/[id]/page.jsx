@@ -43,9 +43,7 @@ const Page = ({ params }) => {
             <img
               src={isValidUrl(data.img) ? `${data.img}` : "/noimage.jpg"}
               alt="Book Image"
-              width={250}
-              height={400}
-              className="rounded-xl"
+              className="rounded-xl object-cover h-max-[300px] w-max-[300px]"
             />
           </div>
           <div>
@@ -68,7 +66,7 @@ const Page = ({ params }) => {
                 URL:{" "}
                 <span className=" text-zinc-800 dark:text-zinc-100 font-semibold">
                   {isValidUrl(data.url) ? (
-                    <a href={data.url}> Book&apos;s Link </a>
+                    <a href={data.url} target="_blank"> Book&apos;s Link </a>
                   ) : (
                     "N/A"
                   )}
