@@ -19,9 +19,13 @@ const BookFields = ({
   setTitle,
   setAuthor,
   setPublishYear,
+  setImg,
+  setUrl,
   bookTitle,
   author,
   publishYear,
+  img,
+  url,
   handleSubmit,
 }) => {
   return (
@@ -66,9 +70,35 @@ const BookFields = ({
           />
         </Label>
         <Separator className="mt-4 mb-2" />
+        <Label>
+          Image (Optional):
+          <Input
+            className="mt-2"
+            type="text"
+            value={img}
+            onChange={(e) => {
+              setImg(e.target.value);
+            }}
+          />
+        </Label>
+        <Separator className="mt-4 mb-2" />
+        <Label>
+          Book Source (Optional):
+          <Input
+            className="mt-2"
+            type="text"
+            value={url}
+            onChange={(e) => {
+              setUrl(e.target.value);
+            }}
+          />
+        </Label>
+        <Separator className="mt-4 mb-2" />
       </CardContent>
       <CardFooter>
-        <Button onClick={handleSubmit} className="rounded-xl">{title}</Button>
+        <Button onClick={handleSubmit} className="rounded-xl">
+          {title}
+        </Button>
       </CardFooter>
     </Card>
   );

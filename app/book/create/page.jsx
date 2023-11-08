@@ -7,11 +7,13 @@ import { useRouter } from "next/navigation";
 const Page = () => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
+  const [img, setImg] = useState(null);
+  const [url, setUrl] = useState(null);
   const [publishYear, setPublishYear] = useState(2023);
 
   const router = useRouter();
   const handleSubmit = async () => {
-    const data = { title: title, author: author, publishYear: publishYear };
+    const data = { title: title, author: author, publishYear: publishYear, img:img, url:url };
     axios
       .post(
         `https://book-store-backend-production-d3c0.up.railway.app/api/book`,
@@ -35,9 +37,13 @@ const Page = () => {
         setTitle={(e) => setTitle(e)}
         setAuthor={(e) => setAuthor(e)}
         setPublishYear={(e) => setPublishYear(e)}
+        setUrl={(e) => setUrl(e)}
+        setImg={(e) => setImg(e)}
         bookTitle={title}
         author={author}
         publishYear={publishYear}
+        img = {img}
+        url = {url}
         handleSubmit={handleSubmit}
       ></BookFields>
     </div>

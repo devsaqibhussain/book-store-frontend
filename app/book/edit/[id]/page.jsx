@@ -8,11 +8,13 @@ const Page = ({ params }) => {
   const { id } = params;
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
+  const [img, setImg] = useState(null);
+  const [url, setUrl] = useState(null);
   const [publishYear, setPublishYear] = useState(2023);
   const router = useRouter();
 
   const handleSubmit = async () => {
-    const data = { title: title, author: author, publishYear: publishYear };
+    const data = { title: title, author: author, publishYear: publishYear, img:img, url:url };
     axios
       .put(
         `https://book-store-backend-production-d3c0.up.railway.app/api/book/${id}`,
@@ -35,6 +37,8 @@ const Page = ({ params }) => {
         setTitle(req.data.title);
         setAuthor(req.data.author);
         setPublishYear(req.data.publishYear);
+        setImg(req.data.img);
+        setUrl(req.data.url);
       })
       .catch((err) => {
         console.log(err.message);
@@ -50,9 +54,13 @@ const Page = ({ params }) => {
         setTitle={(e) => setTitle(e)}
         setAuthor={(e) => setAuthor(e)}
         setPublishYear={(e) => setPublishYear(e)}
+        setUrl={(e) => setUrl(e)}
+        setImg={(e) => setImg(e)}
         bookTitle={title}
         author={author}
         publishYear={publishYear}
+        img={img}
+        url={url}
         handleSubmit={handleSubmit}
       ></BookFields>
     </div>
